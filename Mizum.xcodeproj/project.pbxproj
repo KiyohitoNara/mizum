@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B825BC722F066DB6005AE35F /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B825BC712F066DB6005AE35F /* Feature */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B8A0E53C2F03911300883AD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B825BC6D2F066B56005AE35F /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Packages/Core; sourceTree = "<group>"; };
 		B8A0E52E2F03911200883AD9 /* Mizum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E53B2F03911300883AD9 /* MizumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E5452F03911300883AD9 /* MizumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B825BC722F066DB6005AE35F /* Feature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B825BC6E2F066B8B005AE35F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B8A0E5252F03911200883AD9 = {
 			isa = PBXGroup;
 			children = (
+				B825BC6D2F066B56005AE35F /* Core */,
 				B8A0E5302F03911200883AD9 /* Mizum */,
 				B8A0E53E2F03911300883AD9 /* MizumTests */,
 				B8A0E5482F03911300883AD9 /* MizumUITests */,
+				B825BC6E2F066B8B005AE35F /* Frameworks */,
 				B8A0E52F2F03911200883AD9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +127,7 @@
 			);
 			name = Mizum;
 			packageProductDependencies = (
+				B825BC712F066DB6005AE35F /* Feature */,
 			);
 			productName = Mizum;
 			productReference = B8A0E52E2F03911200883AD9 /* Mizum.app */;
@@ -578,6 +594,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B825BC712F066DB6005AE35F /* Feature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Feature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8A0E5262F03911200883AD9 /* Project object */;
 }

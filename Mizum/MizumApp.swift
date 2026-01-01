@@ -5,6 +5,7 @@
 //  Created by Kiyohito Nara on 2025/12/30.
 //
 
+import Feature
 import SwiftUI
 
 @main
