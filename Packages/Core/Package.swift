@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "Feature", targets: ["Feature"])
     ],
     targets: [
-        .target(name: "Feature")
+        .target(name: "Feature"),
+        .testTarget(name: "FeatureTests", dependencies: ["Feature"])
     ]
 )

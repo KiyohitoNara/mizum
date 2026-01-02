@@ -20,3 +20,15 @@ extension Drink {
         dietaryWaterType
     ]
 }
+
+extension Drink {
+    public init?(sample: HKQuantitySample) {
+        guard sample.quantityType == Drink.dietaryWaterType else {
+            return nil
+        }
+
+        self.id = sample.uuid
+        self.date = sample.startDate
+        self.amount = Measurement(value: sample.quantity.doubleValue(for: .liter()), unit: .liters)
+    }
+}
