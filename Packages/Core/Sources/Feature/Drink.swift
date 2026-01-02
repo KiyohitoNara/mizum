@@ -14,7 +14,9 @@ public struct Drink: Identifiable, Equatable {
 }
 
 extension Drink {
+    public static let dietaryWaterType = HKObjectType.quantityType(forIdentifier: .dietaryWater)!
+
     public static let types: Set<HKSampleType> = [
-        HKObjectType.quantityType(forIdentifier: .dietaryWater)!
+        dietaryWaterType
     ]
 }
