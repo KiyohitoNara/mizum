@@ -1,4 +1,5 @@
 import Foundation
+import HealthKit
 
 public struct Drink: Identifiable, Equatable {
     public let id: UUID
@@ -10,4 +11,10 @@ public struct Drink: Identifiable, Equatable {
         self.date = date
         self.amount = amount
     }
+}
+
+extension Drink {
+    public static let types: Set<HKSampleType> = [
+        HKObjectType.quantityType(forIdentifier: .dietaryWater)!
+    ]
 }
