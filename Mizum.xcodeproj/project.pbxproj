@@ -35,19 +35,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B8A0E5302F03911200883AD9 /* Mizum */ = {
+		B8A0E5302F03911200883AD9 /* iOSApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Mizum;
+			path = iOSApp;
 			sourceTree = "<group>";
 		};
-		B8A0E53E2F03911300883AD9 /* MizumTests */ = {
+		B8A0E53E2F03911300883AD9 /* iOSAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MizumTests;
+			path = iOSAppTests;
 			sourceTree = "<group>";
 		};
-		B8A0E5482F03911300883AD9 /* MizumUITests */ = {
+		B8A0E5482F03911300883AD9 /* iOSAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MizumUITests;
+			path = iOSAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -89,9 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				B825BC6D2F066B56005AE35F /* Core */,
-				B8A0E5302F03911200883AD9 /* Mizum */,
-				B8A0E53E2F03911300883AD9 /* MizumTests */,
-				B8A0E5482F03911300883AD9 /* MizumUITests */,
+				B8A0E5302F03911200883AD9 /* iOSApp */,
+				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
+				B8A0E5482F03911300883AD9 /* iOSAppUITests */,
 				B825BC6E2F066B8B005AE35F /* Frameworks */,
 				B8A0E52F2F03911200883AD9 /* Products */,
 			);
@@ -123,7 +123,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B8A0E5302F03911200883AD9 /* Mizum */,
+				B8A0E5302F03911200883AD9 /* iOSApp */,
 			);
 			name = Mizum;
 			packageProductDependencies = (
@@ -147,7 +147,7 @@
 				B8A0E53D2F03911300883AD9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B8A0E53E2F03911300883AD9 /* MizumTests */,
+				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
 			);
 			name = MizumTests;
 			packageProductDependencies = (
@@ -170,7 +170,7 @@
 				B8A0E5472F03911300883AD9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B8A0E5482F03911300883AD9 /* MizumUITests */,
+				B8A0E5482F03911300883AD9 /* iOSAppUITests */,
 			);
 			name = MizumUITests;
 			packageProductDependencies = (
