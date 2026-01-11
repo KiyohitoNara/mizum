@@ -29,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		B825BC6D2F066B56005AE35F /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Packages/Core; sourceTree = "<group>"; };
+		B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mizum-Info.plist"; sourceTree = "<group>"; };
 		B8A0E52E2F03911200883AD9 /* Mizum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E53B2F03911300883AD9 /* MizumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E5452F03911300883AD9 /* MizumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +89,7 @@
 		B8A0E5252F03911200883AD9 = {
 			isa = PBXGroup;
 			children = (
+				B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */,
 				B825BC6D2F066B56005AE35F /* Core */,
 				B8A0E5302F03911200883AD9 /* iOSApp */,
 				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
@@ -416,6 +418,9 @@
 				DEVELOPMENT_TEAM = 87TZUGTM2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mizum-Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your hydration history from the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your hydration records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -448,6 +453,9 @@
 				DEVELOPMENT_TEAM = 87TZUGTM2U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mizum-Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your hydration history from the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your hydration records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
