@@ -11,8 +11,15 @@ let package = Package(
     products: [
         .library(name: "Feature", targets: ["Feature"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-algorithms", from: "1.2.0")
+    ],
     targets: [
-        .target(name: "Feature"),
+        .target(
+            name: "Feature",
+            dependencies: [
+                .product(name: "Algorithms", package: "swift-algorithms")
+            ]),
         .testTarget(name: "FeatureTests", dependencies: ["Feature"])
     ]
 )

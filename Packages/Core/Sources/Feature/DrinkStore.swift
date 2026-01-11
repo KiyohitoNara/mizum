@@ -1,10 +1,36 @@
+import Algorithms
 import Foundation
 import HealthKit
 import OSLog
 
 @MainActor
 public final class DrinkStore: ObservableObject {
-    @Published public private(set) var drinks: [Drink] = []
+    // Published drink samples
+    @Published public internal(set) var samples: [Drink] = [] {
+        didSet {
+            // Calculate cumulative totals
+            let sums = samples.reductions(0.0) { result, drink in
+                result + drink.amount.converted(to: .milliliters).value
+            }
+
+            // Build totals array
+            totals = []
+
+            // Add initial total at start of day
+            if let total = sums.first {
+                let date = Calendar.current.startOfDay(for: Date())
+                totals.append(Drink(date: date, amount: Measurement(value: total, unit: .milliliters)))
+            }
+
+            // Add totals for each drink
+            for (idx, drink) in samples.enumerated() {
+                totals.append(Drink(date: drink.date, amount: Measurement(value: sums[idx + 1], unit: .milliliters)))
+            }
+        }
+    }
+
+    // Published cumulative totals
+    @Published public internal(set) var totals: [Drink] = []
 
     private let healthStore: HKHealthStore
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "DrinkStore")
@@ -46,7 +72,7 @@ public final class DrinkStore: ObservableObject {
 
             let results = (samples as? [HKQuantitySample])?.compactMap { Drink(sample: $0) }
             Task { @MainActor in
-                self?.drinks = results ?? []
+                self?.samples = results ?? []
             }
         }
         healthStore.execute(query)
