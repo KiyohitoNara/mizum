@@ -33,10 +33,81 @@ public final class DrinkStore: ObservableObject {
     @Published public internal(set) var totals: [Drink] = []
 
     private let healthStore: HKHealthStore
+    private var observerQuery: HKObserverQuery?
+    private var anchor: HKQueryAnchor?
+
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "DrinkStore")
 
     public init(healthStore: HKHealthStore) {
         self.healthStore = healthStore
+    }
+
+    public func startObserving() {
+        let startOfDay = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: nil, options: .strictStartDate)
+
+        let query = HKObserverQuery(sampleType: Drink.dietaryWaterType, predicate: predicate) {
+            [weak self] _, completionHandler, error in
+            defer {
+                completionHandler()
+            }
+
+            if let error {
+                self?.logger.error("Failed to observe drink samples: \(error.localizedDescription)")
+
+                return
+            } else {
+                self?.logger.info("Observed a change in drink samples from HealthKit.")
+            }
+
+            Task { @MainActor in
+                self?.fetchDrinks()
+            }
+        }
+
+        observerQuery = query
+        healthStore.execute(query)
+    }
+
+    public func stopObserving() {
+        if let observerQuery {
+            logger.info("Stopping observation of drink samples from HealthKit.")
+
+            healthStore.stop(observerQuery)
+        }
+
+        observerQuery = nil
+    }
+
+    public func fetchDrinks() {
+        logger.info("Fetching today's drinks from HealthKit.")
+
+        let startOfDay = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
+        let description = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
+
+        let query = HKAnchoredObjectQuery(type: Drink.dietaryWaterType, predicate: predicate, anchor: anchor, limit: HKObjectQueryNoLimit) {
+            [weak self] _, samples, _, newAnchor, error in
+            if let error {
+                self?.logger.error("Failed to fetch drink samples: \(error.localizedDescription)")
+
+                return
+            } else {
+                self?.logger.info("Received \(samples?.count ?? 0) drink samples from HealthKit.")
+            }
+
+            let result = (samples as? [HKQuantitySample])?.compactMap { Drink(sample: $0) }
+            Task { @MainActor in
+                if let result {
+                    self?.samples.append(contentsOf: result)
+                    self?.samples.sort { $0.date < $1.date }
+                }
+
+                self?.anchor = newAnchor
+            }
+        }
+
+        healthStore.execute(query)
     }
 
     public func addDrink(ml: Double) async {
@@ -48,33 +119,10 @@ public final class DrinkStore: ObservableObject {
 
         do {
             try await healthStore.save(sample)
-            
+
             logger.info("Successfully saved drink sample to HealthKit.")
         } catch {
             logger.error("Failed to save drink sample: \(error.localizedDescription)")
         }
-    }
-
-    public func fetchDrinks() async {
-        logger.info("Fetching today's drinks from HealthKit.")
-
-        let startOfDay = Calendar.current.startOfDay(for: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
-        let description = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
-
-        let query = HKSampleQuery(sampleType: Drink.dietaryWaterType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: [description]) {
-            [weak self] _, samples, error in
-            if let error {
-                self?.logger.error("Failed to fetch drink samples: \(error.localizedDescription)")
-            } else {
-                self?.logger.info("Received \(samples?.count ?? 0) drink samples from HealthKit.")
-            }
-
-            let results = (samples as? [HKQuantitySample])?.compactMap { Drink(sample: $0) }
-            Task { @MainActor in
-                self?.samples = results ?? []
-            }
-        }
-        healthStore.execute(query)
     }
 }
