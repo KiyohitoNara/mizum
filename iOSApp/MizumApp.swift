@@ -1,18 +1,13 @@
-//
-//  MizumApp.swift
-//  Mizum
-//
-//  Created by Kiyohito Nara on 2025/12/30.
-//
-
-import Feature
+import HealthKit
 import SwiftUI
 
 @main
 struct MizumApp: App {
+    private let healthStore = HKHealthStore()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(healthStore: healthStore)
         }
     }
 }
