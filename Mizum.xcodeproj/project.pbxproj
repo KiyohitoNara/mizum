@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		B825BC6D2F066B56005AE35F /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Packages/Core; sourceTree = "<group>"; };
 		B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mizum-Info.plist"; sourceTree = "<group>"; };
+		B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mizum.entitlements; sourceTree = "<group>"; };
 		B8A0E52E2F03911200883AD9 /* Mizum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E53B2F03911300883AD9 /* MizumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E5452F03911300883AD9 /* MizumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +90,7 @@
 		B8A0E5252F03911200883AD9 = {
 			isa = PBXGroup;
 			children = (
+				B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */,
 				B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */,
 				B825BC6D2F066B56005AE35F /* Core */,
 				B8A0E5302F03911200883AD9 /* iOSApp */,
@@ -413,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mizum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87TZUGTM2U;
@@ -448,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mizum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87TZUGTM2U;
