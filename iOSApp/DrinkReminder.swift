@@ -31,7 +31,7 @@ final class DrinkReminder {
         authorized = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
     }
 
-    public func scheduleReminders(startHour: Int, endHour: Int) async {
+    public func scheduleReminders(startDate: Date, endDate: Date) async {
         logger.info("Scheduling reminders.")
 
         // Check authorization
@@ -45,6 +45,10 @@ final class DrinkReminder {
         removeAllScheduledReminders()
 
         // Schedule new reminders
+        let calendar = Calendar.current
+        let startHour = calendar.component(.hour, from: startDate)
+        let startMinute = calendar.component(.minute, from: startDate)
+        let endHour = calendar.component(.hour, from: endDate)
         for hour in startHour...endHour {
             logger.info("Scheduling reminder for hour \(hour).")
 
@@ -57,7 +61,7 @@ final class DrinkReminder {
 
             var components = DateComponents()
             components.hour = hour
-            components.minute = 0
+            components.minute = startMinute
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
 
