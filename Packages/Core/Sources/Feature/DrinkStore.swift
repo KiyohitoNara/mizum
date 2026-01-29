@@ -2,11 +2,13 @@ import Algorithms
 import Foundation
 import HealthKit
 import OSLog
+import Observation
 
 @MainActor
-public final class DrinkStore: ObservableObject {
+@Observable
+public final class DrinkStore {
     // Published drink samples
-    @Published public internal(set) var samples: [Drink] = [] {
+    public internal(set) var samples: [Drink] = [] {
         didSet {
             // Calculate cumulative totals
             let sums = samples.reductions(0.0) { result, drink in
@@ -30,7 +32,7 @@ public final class DrinkStore: ObservableObject {
     }
 
     // Published cumulative totals
-    @Published public internal(set) var totals: [Drink] = []
+    public internal(set) var totals: [Drink] = []
 
     private let healthStore: HKHealthStore
     private var observerQuery: HKObserverQuery?
@@ -43,6 +45,8 @@ public final class DrinkStore: ObservableObject {
     }
 
     public func startObserving() {
+        logger.info("Starting observation of drink samples from HealthKit.")
+
         let startOfDay = Calendar.current.startOfDay(for: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: nil, options: .strictStartDate)
 
@@ -84,7 +88,6 @@ public final class DrinkStore: ObservableObject {
 
         let startOfDay = Calendar.current.startOfDay(for: Date())
         let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
-        let description = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
 
         let query = HKAnchoredObjectQuery(type: Drink.dietaryWaterType, predicate: predicate, anchor: anchor, limit: HKObjectQueryNoLimit) {
             [weak self] _, samples, _, newAnchor, error in
