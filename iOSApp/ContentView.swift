@@ -5,11 +5,32 @@ import HealthKitUI
 import OSLog
 import SwiftUI
 
+@MainActor
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     @State private var requestAuth = false
-    @StateObject private var drinkStore: DrinkStore
+    @State private var drinkStore: DrinkStore
+    @State private var drinkReminder = DrinkReminder()
+
+    // Reminder enabled
+    @AppStorage("remindersEnabled") private var remindersEnabled = false
+
+    // Reminder start time
+    @AppStorage("reminderStartTime") private var reminderStartTime = {
+        let calendar = Calendar.current
+        let now = Date()
+
+        return calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now) ?? now
+    }()
+
+    // Reminder end time
+    @AppStorage("reminderEndTime") private var reminderEndTime = {
+        let calendar = Calendar.current
+        let now = Date()
+
+        return calendar.date(bySettingHour: 18, minute: 0, second: 0, of: now) ?? now
+    }()
 
     private let healthStore: HKHealthStore
 
@@ -18,7 +39,7 @@ struct ContentView: View {
     public init(healthStore: HKHealthStore) {
         self.healthStore = healthStore
 
-        _drinkStore = StateObject(wrappedValue: DrinkStore(healthStore: healthStore))
+        drinkStore = DrinkStore(healthStore: healthStore)
     }
 
     var body: some View {
@@ -32,8 +53,6 @@ struct ContentView: View {
                         Label("100ml", systemImage: "cup.and.saucer.fill")
                         Spacer()
                         Button("", systemImage: "plus") {
-                            logger.info("Adding 100ml drink.")
-                            
                             Task {
                                 await drinkStore.addDrink(ml: 100)
                             }
@@ -45,8 +64,6 @@ struct ContentView: View {
                         Label("250ml", systemImage: "mug.fill")
                         Spacer()
                         Button("", systemImage: "plus") {
-                            logger.info("Adding 250ml drink.")
-                            
                             Task {
                                 await drinkStore.addDrink(ml: 250)
                             }
@@ -58,14 +75,32 @@ struct ContentView: View {
                         Label("500ml", systemImage: "waterbottle.fill")
                         Spacer()
                         Button("", systemImage: "plus") {
-                            logger.info("Adding 500ml drink.")
-                            
                             Task {
                                 await drinkStore.addDrink(ml: 500)
                             }
                         }
                     }
                     .listRowSeparator(.hidden)
+                }
+
+                Section {
+                    Toggle("Reminder", isOn: $remindersEnabled)
+                        .disabled(!drinkReminder.authorized)
+                        .onChange(of: remindersEnabled) {
+                            updateScheduledReminders()
+                        }
+
+                    DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
+                        .disabled(!remindersEnabled || !drinkReminder.authorized)
+                        .onChange(of: reminderStartTime) {
+                            updateScheduledReminders()
+                        }
+
+                    DatePicker("End", selection: $reminderEndTime, displayedComponents: .hourAndMinute)
+                        .disabled(!remindersEnabled || !drinkReminder.authorized)
+                        .onChange(of: reminderEndTime) {
+                            updateScheduledReminders()
+                        }
                 }
             }
             .navigationTitle("Mizum")
@@ -82,24 +117,36 @@ struct ContentView: View {
                 logger.error("Authorize HealthKit data access failed.")
             }
         }
+        .task {
+            await drinkReminder.requestAuthorization()
+        }
         .onAppear {
+            UIDatePicker.appearance().minuteInterval = 10
+
             requestAuth = true
         }
         .onChange(of: scenePhase) {
             switch scenePhase {
             case .active:
-                logger.info("App became active.")
-
                 drinkStore.startObserving()
             case .inactive, .background:
-                logger.info("App became inactive or entered background.")
-
                 drinkStore.stopObserving()
             @unknown default:
                 break
             }
         }
+    }
 
+    private func updateScheduledReminders() {
+        logger.info("Updating scheduled reminders.")
+
+        if remindersEnabled {
+            Task {
+                await drinkReminder.scheduleReminders(startDate: reminderStartTime, endDate: reminderEndTime)
+            }
+        } else {
+            drinkReminder.removeAllScheduledReminders()
+        }
     }
 }
 
