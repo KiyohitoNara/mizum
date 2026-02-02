@@ -8,10 +8,10 @@ import SwiftUI
 @MainActor
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(DrinkStore.self) private var drinkStore
+    @Environment(DrinkReminder.self) private var drinkReminder
 
     @State private var requestAuth = false
-    @State private var drinkStore: DrinkStore
-    @State private var drinkReminder = DrinkReminder()
 
     // Reminder enabled
     @AppStorage("remindersEnabled") private var remindersEnabled = false
@@ -32,15 +32,7 @@ struct ContentView: View {
         return calendar.date(bySettingHour: 18, minute: 0, second: 0, of: now) ?? now
     }()
 
-    private let healthStore: HKHealthStore
-
     private let logger = Logger(subsystem: "com.kiyohitonara.Mizum", category: "ContentView")
-
-    public init(healthStore: HKHealthStore) {
-        self.healthStore = healthStore
-
-        drinkStore = DrinkStore(healthStore: healthStore)
-    }
 
     var body: some View {
         NavigationStack {
@@ -105,7 +97,7 @@ struct ContentView: View {
             }
             .navigationTitle("Mizum")
         }
-        .healthDataAccessRequest(store: healthStore, shareTypes: Drink.types, readTypes: Drink.types, trigger: requestAuth) { result in
+        .healthDataAccessRequest(store: drinkStore.healthStore, shareTypes: Drink.types, readTypes: Drink.types, trigger: requestAuth) { result in
             switch result {
             case .success:
                 logger.info("Authorize HealthKit data access succeeded.")
@@ -151,5 +143,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(healthStore: HKHealthStore())
+    ContentView()
+        .environment(DrinkStore(healthStore: HKHealthStore()))
+        .environment(DrinkReminder())
 }

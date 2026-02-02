@@ -34,7 +34,7 @@ public final class DrinkStore {
     // Published cumulative totals
     public internal(set) var totals: [Drink] = []
 
-    private let healthStore: HKHealthStore
+    public let healthStore: HKHealthStore
     private var observerQuery: HKObserverQuery?
     private var anchor: HKQueryAnchor?
 

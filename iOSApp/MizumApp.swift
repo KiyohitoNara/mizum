@@ -1,13 +1,17 @@
+import Feature
 import HealthKit
 import SwiftUI
 
 @main
 struct MizumApp: App {
-    private let healthStore = HKHealthStore()
+    @State private var drinkStore = DrinkStore(healthStore: HKHealthStore())
+    @State private var drinkReminder = DrinkReminder()
 
     var body: some Scene {
         WindowGroup {
-            ContentView(healthStore: healthStore)
+            ContentView()
+                .environment(drinkStore)
+                .environment(drinkReminder)
         }
     }
 }
