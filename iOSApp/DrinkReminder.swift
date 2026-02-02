@@ -1,3 +1,4 @@
+import Feature
 import Foundation
 import OSLog
 import Observation
@@ -31,6 +32,26 @@ final class DrinkReminder {
         authorized = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
     }
 
+    public func setupNotificationDelegate(delegate: UNUserNotificationCenterDelegate) {
+        logger.info("Setting up notification delegate.")
+
+        notificationCenter.delegate = delegate
+    }
+
+    public func setupNotificationCategories() {
+        logger.info("Setting up notification categories and actions.")
+
+        let actions = DrinkAmount.allCases.map { amount in
+            UNNotificationAction(
+                identifier: amount.identifier,
+                title: amount.title,
+            )
+        }
+
+        let category = UNNotificationCategory(identifier: "io.github.kiyohitonara.mizum.reminder", actions: actions, intentIdentifiers: [])
+        notificationCenter.setNotificationCategories([category])
+    }
+
     public func scheduleReminders(startDate: Date, endDate: Date) async {
         logger.info("Scheduling reminders.")
 
@@ -57,6 +78,7 @@ final class DrinkReminder {
             let content = UNMutableNotificationContent()
             content.title = "Time to Drink"
             content.body = "A glass of water now is a good choice."
+            content.categoryIdentifier = "io.github.kiyohitonara.mizum.reminder"
             content.sound = .default
 
             var components = DateComponents()
