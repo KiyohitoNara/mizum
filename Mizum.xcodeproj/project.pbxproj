@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B825BC722F066DB6005AE35F /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B825BC712F066DB6005AE35F /* Feature */; };
+		B8738AE52F385EAF00D6F07B /* Mizum.icon in Resources */ = {isa = PBXBuildFile; fileRef = B8738AE42F385EAF00D6F07B /* Mizum.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +32,10 @@
 		B825BC6D2F066B56005AE35F /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Packages/Core; sourceTree = "<group>"; };
 		B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mizum-Info.plist"; sourceTree = "<group>"; };
 		B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mizum.entitlements; sourceTree = "<group>"; };
-		B8A0E52E2F03911200883AD9 /* Mizum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizum.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A0E53B2F03911300883AD9 /* MizumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A0E5452F03911300883AD9 /* MizumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MizumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8738AE42F385EAF00D6F07B /* Mizum.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Mizum.icon; sourceTree = "<group>"; };
+		B8A0E52E2F03911200883AD9 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A0E53B2F03911300883AD9 /* iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A0E5452F03911300883AD9 /* iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -90,6 +92,7 @@
 		B8A0E5252F03911200883AD9 = {
 			isa = PBXGroup;
 			children = (
+				B8738AE42F385EAF00D6F07B /* Mizum.icon */,
 				B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */,
 				B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */,
 				B825BC6D2F066B56005AE35F /* Core */,
@@ -104,9 +107,9 @@
 		B8A0E52F2F03911200883AD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8A0E52E2F03911200883AD9 /* Mizum.app */,
-				B8A0E53B2F03911300883AD9 /* MizumTests.xctest */,
-				B8A0E5452F03911300883AD9 /* MizumUITests.xctest */,
+				B8A0E52E2F03911200883AD9 /* iOS.app */,
+				B8A0E53B2F03911300883AD9 /* iOSTests.xctest */,
+				B8A0E5452F03911300883AD9 /* iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8A0E52D2F03911200883AD9 /* Mizum */ = {
+		B8A0E52D2F03911200883AD9 /* iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "Mizum" */;
+			buildConfigurationList = B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOS" */;
 			buildPhases = (
 				B8A0E52A2F03911200883AD9 /* Sources */,
 				B8A0E52B2F03911200883AD9 /* Frameworks */,
@@ -129,17 +132,17 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E5302F03911200883AD9 /* iOSApp */,
 			);
-			name = Mizum;
+			name = iOS;
 			packageProductDependencies = (
 				B825BC712F066DB6005AE35F /* Feature */,
 			);
 			productName = Mizum;
-			productReference = B8A0E52E2F03911200883AD9 /* Mizum.app */;
+			productReference = B8A0E52E2F03911200883AD9 /* iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8A0E53A2F03911300883AD9 /* MizumTests */ = {
+		B8A0E53A2F03911300883AD9 /* iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "MizumTests" */;
+			buildConfigurationList = B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSTests" */;
 			buildPhases = (
 				B8A0E5372F03911300883AD9 /* Sources */,
 				B8A0E5382F03911300883AD9 /* Frameworks */,
@@ -153,16 +156,16 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
 			);
-			name = MizumTests;
+			name = iOSTests;
 			packageProductDependencies = (
 			);
 			productName = MizumTests;
-			productReference = B8A0E53B2F03911300883AD9 /* MizumTests.xctest */;
+			productReference = B8A0E53B2F03911300883AD9 /* iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8A0E5442F03911300883AD9 /* MizumUITests */ = {
+		B8A0E5442F03911300883AD9 /* iOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "MizumUITests" */;
+			buildConfigurationList = B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSUITests" */;
 			buildPhases = (
 				B8A0E5412F03911300883AD9 /* Sources */,
 				B8A0E5422F03911300883AD9 /* Frameworks */,
@@ -176,11 +179,11 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E5482F03911300883AD9 /* iOSAppUITests */,
 			);
-			name = MizumUITests;
+			name = iOSUITests;
 			packageProductDependencies = (
 			);
 			productName = MizumUITests;
-			productReference = B8A0E5452F03911300883AD9 /* MizumUITests.xctest */;
+			productReference = B8A0E5452F03911300883AD9 /* iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -220,9 +223,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8A0E52D2F03911200883AD9 /* Mizum */,
-				B8A0E53A2F03911300883AD9 /* MizumTests */,
-				B8A0E5442F03911300883AD9 /* MizumUITests */,
+				B8A0E52D2F03911200883AD9 /* iOS */,
+				B8A0E53A2F03911300883AD9 /* iOSTests */,
+				B8A0E5442F03911300883AD9 /* iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8738AE52F385EAF00D6F07B /* Mizum.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +282,12 @@
 /* Begin PBXTargetDependency section */
 		B8A0E53D2F03911300883AD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8A0E52D2F03911200883AD9 /* Mizum */;
+			target = B8A0E52D2F03911200883AD9 /* iOS */;
 			targetProxy = B8A0E53C2F03911300883AD9 /* PBXContainerItemProxy */;
 		};
 		B8A0E5472F03911300883AD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8A0E52D2F03911200883AD9 /* Mizum */;
+			target = B8A0E52D2F03911200883AD9 /* iOS */;
 			targetProxy = B8A0E5462F03911300883AD9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -413,7 +417,7 @@
 		B8A0E5502F03911300883AD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Mizum;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mizum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -422,6 +426,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mizum-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Mizum;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your drink history from the Health app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your drink records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -449,7 +454,7 @@
 		B8A0E5512F03911300883AD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Mizum;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mizum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +463,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mizum-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Mizum;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your drink history from the Health app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your drink records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -578,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "Mizum" */ = {
+		B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5502F03911300883AD9 /* Debug */,
@@ -587,7 +593,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "MizumTests" */ = {
+		B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5532F03911300883AD9 /* Debug */,
@@ -596,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "MizumUITests" */ = {
+		B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5562F03911300883AD9 /* Debug */,
