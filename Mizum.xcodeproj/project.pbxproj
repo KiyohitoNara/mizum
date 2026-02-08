@@ -422,8 +422,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mizum-Info.plist";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your hydration history from the Health app.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your hydration records to the Health app.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your drink history from the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your drink records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -458,8 +458,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mizum-Info.plist";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your hydration history from the Health app.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your hydration records to the Health app.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Display your drink history from the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Save your drink records to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
