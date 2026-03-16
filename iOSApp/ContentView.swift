@@ -13,6 +13,9 @@ struct ContentView: View {
 
     @State private var requestAuth = false
 
+    // Daily goal
+    @AppStorage("dailyGoal") private var dailyGoal = 2000
+
     // Reminder enabled
     @AppStorage("remindersEnabled") private var remindersEnabled = false
 
@@ -38,7 +41,7 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    DrinkChart(goal: 2000, drinks: drinkStore.totals)
+                    DrinkChart(goal: dailyGoal, drinks: drinkStore.totals)
                         .frame(height: 200)
 
                     HStack {
@@ -76,6 +79,8 @@ struct ContentView: View {
                 }
 
                 Section {
+                    Stepper("目標: \(dailyGoal)ml", value: $dailyGoal, in: 500...5000, step: 100)
+
                     Toggle("Reminder", isOn: $remindersEnabled)
                         .disabled(!drinkReminder.authorized)
                         .onChange(of: remindersEnabled) {
