@@ -8,6 +8,6 @@ public enum DrinkAmount: Double, CaseIterable {
     }
 
     public var title: String {
-        return "Drink \(self.rawValue)ml"
+        return "Drink \(Int(self.rawValue))ml"
     }
 }
