@@ -118,7 +118,7 @@ struct ContentView: View {
             await drinkReminder.requestAuthorization()
         }
         .onAppear {
-            UIDatePicker.appearance().minuteInterval = 10
+            UIDatePicker.appearance().minuteInterval = 5
 
             requestAuth = true
         }
