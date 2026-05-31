@@ -35,7 +35,7 @@ struct DrinkChart: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
-                Text("今日の水分摂取量")
+                Text("Today's water intake")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
