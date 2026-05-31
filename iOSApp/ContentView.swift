@@ -41,7 +41,7 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    DrinkChart(goal: dailyGoal, drinks: drinkStore.totals)
+                    DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
                         .frame(height: 200)
 
                     HStack {
