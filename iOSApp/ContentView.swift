@@ -39,65 +39,74 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
-                        .frame(height: 200)
-
-                    HStack {
-                        Label("100ml", systemImage: "cup.and.saucer.fill")
-                        Spacer()
-                        Button("", systemImage: "plus") {
-                            Task {
-                                await drinkStore.addDrink(ml: 100)
-                            }
-                        }
+            VStack(spacing: 0) {
+                List {
+                    Section {
+                        DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
+                            .frame(height: 200)
                     }
-                    .listRowSeparator(.hidden)
-
-                    HStack {
-                        Label("250ml", systemImage: "mug.fill")
-                        Spacer()
-                        Button("", systemImage: "plus") {
-                            Task {
-                                await drinkStore.addDrink(ml: 250)
-                            }
-                        }
-                    }
-                    .listRowSeparator(.hidden)
-
-                    HStack {
-                        Label("500ml", systemImage: "waterbottle.fill")
-                        Spacer()
-                        Button("", systemImage: "plus") {
-                            Task {
-                                await drinkStore.addDrink(ml: 500)
-                            }
-                        }
-                    }
-                    .listRowSeparator(.hidden)
                 }
+                .listStyle(.grouped)
+                .scrollDisabled(true)
+                .frame(height: 260)
 
-                Section {
-                    Stepper("Goal: \(dailyGoal)ml", value: $dailyGoal, in: 500...5000, step: 100)
-
-                    Toggle("Reminder", isOn: $remindersEnabled)
-                        .disabled(!drinkReminder.authorized)
-                        .onChange(of: remindersEnabled) {
-                            updateScheduledReminders()
+                Form {
+                    Section {
+                        HStack {
+                            Label("100ml", systemImage: "cup.and.saucer.fill")
+                            Spacer()
+                            Button("", systemImage: "plus") {
+                                Task {
+                                    await drinkStore.addDrink(ml: 100)
+                                }
+                            }
                         }
+                        .listRowSeparator(.hidden)
 
-                    DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
-                        .disabled(!remindersEnabled || !drinkReminder.authorized)
-                        .onChange(of: reminderStartTime) {
-                            updateScheduledReminders()
+                        HStack {
+                            Label("250ml", systemImage: "mug.fill")
+                            Spacer()
+                            Button("", systemImage: "plus") {
+                                Task {
+                                    await drinkStore.addDrink(ml: 250)
+                                }
+                            }
                         }
+                        .listRowSeparator(.hidden)
 
-                    DatePicker("End", selection: $reminderEndTime, displayedComponents: .hourAndMinute)
-                        .disabled(!remindersEnabled || !drinkReminder.authorized)
-                        .onChange(of: reminderEndTime) {
-                            updateScheduledReminders()
+                        HStack {
+                            Label("500ml", systemImage: "waterbottle.fill")
+                            Spacer()
+                            Button("", systemImage: "plus") {
+                                Task {
+                                    await drinkStore.addDrink(ml: 500)
+                                }
+                            }
                         }
+                        .listRowSeparator(.hidden)
+                    }
+
+                    Section {
+                        Stepper("Goal: \(dailyGoal)ml", value: $dailyGoal, in: 500...5000, step: 100)
+
+                        Toggle("Reminder", isOn: $remindersEnabled)
+                            .disabled(!drinkReminder.authorized)
+                            .onChange(of: remindersEnabled) {
+                                updateScheduledReminders()
+                            }
+
+                        DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
+                            .disabled(!remindersEnabled || !drinkReminder.authorized)
+                            .onChange(of: reminderStartTime) {
+                                updateScheduledReminders()
+                            }
+
+                        DatePicker("End", selection: $reminderEndTime, displayedComponents: .hourAndMinute)
+                            .disabled(!remindersEnabled || !drinkReminder.authorized)
+                            .onChange(of: reminderEndTime) {
+                                updateScheduledReminders()
+                            }
+                    }
                 }
             }
             .navigationTitle("Mizum")
