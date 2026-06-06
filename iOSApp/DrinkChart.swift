@@ -72,8 +72,11 @@ struct DrinkChart: View {
             .chartYScale(domain: 0...maxY)
             .chartXAxis {
                 AxisMarks(values: .stride(by: .hour, count: 3)) { value in
-                    AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5))
-                        .foregroundStyle(.secondary.opacity(0.2))
+                    if value.index == 0 {
+                        AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5))
+                    } else {
+                        AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5, dash: [2, 2]))
+                    }
                     AxisTick()
                     AxisValueLabel(format: .dateTime.hour())
                 }
@@ -81,7 +84,6 @@ struct DrinkChart: View {
             .chartYAxis {
                 AxisMarks(position: .leading, values: .stride(by: 500)) { value in
                     AxisGridLine()
-                    AxisTick()
                     if let ml = value.as(Double.self) {
                         AxisValueLabel("\(Int(ml))ml")
                     }
