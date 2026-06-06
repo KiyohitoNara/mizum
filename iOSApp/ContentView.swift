@@ -45,7 +45,7 @@ struct ContentView: View {
                     .padding()
 
                 Form {
-                    Section {
+                    Section("Water") {
                         HStack {
                             Label("100ml", systemImage: "cup.and.saucer.fill")
                             Spacer()
