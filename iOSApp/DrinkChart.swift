@@ -13,13 +13,16 @@ struct DrinkChart: View {
         drinks.last?.amount.converted(to: .milliliters).value ?? 0
     }
 
-    private var totalText: String {
+    private var totalValue: String {
         if totalAmount >= 1000 {
-            let liters = totalAmount / 1000
-            return String(format: "%.1f L", liters)
+            return String(format: "%.1f", totalAmount / 1000)
         } else {
-            return "\(Int(totalAmount)) ml"
+            return "\(Int(totalAmount))"
         }
+    }
+
+    private var totalUnit: String {
+        totalAmount >= 1000 ? "L" : "ml"
     }
 
     private var maxY: Double {
@@ -31,12 +34,17 @@ struct DrinkChart: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(totalText)
+                (Text(totalValue)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
+                    + Text(" \(totalUnit)")
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.secondary))
                 Text("Today's water intake")
                     .font(.caption)
+                    .fontWeight(.bold)
                     .foregroundStyle(.secondary)
             }
             Chart {
