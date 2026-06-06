@@ -40,15 +40,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                List {
-                    Section {
-                        DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
-                            .frame(height: 200)
-                    }
-                }
-                .listStyle(.grouped)
-                .scrollDisabled(true)
-                .frame(height: 260)
+                DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
+                    .frame(height: 200)
+                    .padding()
 
                 Form {
                     Section {
