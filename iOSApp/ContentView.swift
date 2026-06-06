@@ -43,6 +43,7 @@ struct ContentView: View {
                 DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
                     .frame(height: 200)
                     .padding()
+                    .background(Color(.systemBackground))
 
                 Form {
                     Section {
@@ -117,7 +118,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Mizum")
+            .toolbarBackground(Color(.systemGroupedBackground), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
         .healthDataAccessRequest(store: drinkStore.healthStore, shareTypes: Drink.types, readTypes: Drink.types, trigger: requestAuth) { result in
             switch result {
