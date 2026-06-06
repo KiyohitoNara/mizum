@@ -80,7 +80,7 @@ struct ContentView: View {
                         .listRowSeparator(.hidden)
                     }
 
-                    Section {
+                    Section("Reminders") {
                         Stepper("Goal: \(dailyGoal)ml", value: $dailyGoal, in: 500...5000, step: 100)
 
                         Toggle("Reminder", isOn: $remindersEnabled)
