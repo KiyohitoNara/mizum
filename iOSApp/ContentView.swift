@@ -45,7 +45,7 @@ struct ContentView: View {
                     .padding()
 
                 Form {
-                    Section("Water") {
+                    Section {
                         HStack {
                             Label("100ml", systemImage: "cup.and.saucer.fill")
                             Spacer()
@@ -78,9 +78,12 @@ struct ContentView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
+                    } header: {
+                        Text("Water")
+                            .foregroundColor(.primary)
                     }
 
-                    Section("Reminders") {
+                    Section {
                         Toggle("Reminder", isOn: $remindersEnabled)
                             .disabled(!drinkReminder.authorized)
                             .onChange(of: remindersEnabled) {
@@ -108,6 +111,9 @@ struct ContentView: View {
                             .onChange(of: reminderEndTime) {
                                 updateScheduledReminders()
                             }
+                    } header: {
+                        Text("Reminders")
+                            .foregroundColor(.primary)
                     }
                 }
             }
