@@ -81,13 +81,21 @@ struct ContentView: View {
                     }
 
                     Section("Reminders") {
-                        Stepper("Goal: \(dailyGoal)ml", value: $dailyGoal, in: 500...5000, step: 100)
-
                         Toggle("Reminder", isOn: $remindersEnabled)
                             .disabled(!drinkReminder.authorized)
                             .onChange(of: remindersEnabled) {
                                 updateScheduledReminders()
                             }
+
+                        HStack {
+                            Text("Goal")
+                            Spacer()
+                            TextField("Goal", value: $dailyGoal, format: .number)
+                                .keyboardType(.numberPad)
+                                .multilineTextAlignment(.trailing)
+                            Text("ml")
+                                .foregroundStyle(.secondary)
+                        }
 
                         DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
                             .disabled(!remindersEnabled || !drinkReminder.authorized)
