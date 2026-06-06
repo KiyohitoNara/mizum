@@ -89,6 +89,10 @@ struct DrinkChart: View {
                     }
                 }
             }
+            .chartPlotStyle { plotArea in
+                plotArea
+                    .border(.secondary.opacity(0.5), width: 0.5)
+            }
         }
     }
 }
