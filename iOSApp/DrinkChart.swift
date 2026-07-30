@@ -85,7 +85,7 @@ struct DrinkChart: View {
                 AxisMarks(position: .leading, values: .stride(by: 500)) { value in
                     AxisGridLine()
                     if let ml = value.as(Double.self) {
-                        AxisValueLabel("\(Int(ml))ml")
+                        AxisValueLabel("\(Int(ml)) mL")
                     }
                 }
             }

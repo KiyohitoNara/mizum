@@ -39,89 +39,81 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
-                    .frame(height: 200)
-                    .padding()
-                    .background(Color(.systemBackground))
+            Form {
+                Section {
+                    DrinkChart(goal: Double(dailyGoal), drinks: drinkStore.totals)
+                        .frame(height: 200)
+                }
 
-                Form {
-                    Section {
+                Section {
+                    Stepper(value: $dailyGoal, in: 500...5000, step: 100) {
                         HStack {
-                            Label("100ml", systemImage: "cup.and.saucer.fill")
-                            Spacer()
-                            Button("", systemImage: "plus") {
-                                Task {
-                                    await drinkStore.addDrink(ml: 100)
-                                }
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-
-                        HStack {
-                            Label("250ml", systemImage: "mug.fill")
-                            Spacer()
-                            Button("", systemImage: "plus") {
-                                Task {
-                                    await drinkStore.addDrink(ml: 250)
-                                }
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-
-                        HStack {
-                            Label("500ml", systemImage: "waterbottle.fill")
-                            Spacer()
-                            Button("", systemImage: "plus") {
-                                Task {
-                                    await drinkStore.addDrink(ml: 500)
-                                }
-                            }
-                        }
-                        .listRowSeparator(.hidden)
-                    } header: {
-                        Text("Water")
-                            .foregroundColor(.primary)
-                    }
-
-                    Section {
-                        Toggle("Reminder", isOn: $remindersEnabled)
-                            .disabled(!drinkReminder.authorized)
-                            .onChange(of: remindersEnabled) {
-                                updateScheduledReminders()
-                            }
-
-                        HStack {
-                            Text("Goal")
-                            Spacer()
-                            TextField("Goal", value: $dailyGoal, format: .number)
-                                .keyboardType(.numberPad)
-                                .multilineTextAlignment(.trailing)
-                            Text("ml")
+                            Text(dailyGoal, format: .number)
+                                .foregroundStyle(.primary)
+                            Text("mL")
                                 .foregroundStyle(.secondary)
                         }
+                    }
+                } header: {
+                    Text("Daily Goal")
+                        .foregroundColor(.primary)
+                }
 
-                        DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
-                            .disabled(!remindersEnabled || !drinkReminder.authorized)
-                            .onChange(of: reminderStartTime) {
-                                updateScheduledReminders()
-                            }
+                Section {
+                    Toggle("Notifications", isOn: $remindersEnabled)
+                        .disabled(!drinkReminder.authorized)
+                        .onChange(of: remindersEnabled) {
+                            updateScheduledReminders()
+                        }
 
-                        DatePicker("End", selection: $reminderEndTime, displayedComponents: .hourAndMinute)
-                            .disabled(!remindersEnabled || !drinkReminder.authorized)
-                            .onChange(of: reminderEndTime) {
-                                updateScheduledReminders()
+                    DatePicker("Start", selection: $reminderStartTime, displayedComponents: .hourAndMinute)
+                        .disabled(!remindersEnabled || !drinkReminder.authorized)
+                        .onChange(of: reminderStartTime) {
+                            updateScheduledReminders()
+                        }
+
+                    DatePicker("End", selection: $reminderEndTime, displayedComponents: .hourAndMinute)
+                        .disabled(!remindersEnabled || !drinkReminder.authorized)
+                        .onChange(of: reminderEndTime) {
+                            updateScheduledReminders()
+                        }
+                } header: {
+                    Text("Reminders")
+                        .foregroundColor(.primary)
+                }
+            }
+            .navigationTitle("Mizum")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button {
+                            Task {
+                                await drinkStore.addDrink(ml: 100)
                             }
-                    } header: {
-                        Text("Reminders")
-                            .foregroundColor(.primary)
+                        } label: {
+                            Label("100 mL", systemImage: "cup.and.saucer.fill")
+                        }
+
+                        Button {
+                            Task {
+                                await drinkStore.addDrink(ml: 250)
+                            }
+                        } label: {
+                            Label("250 mL", systemImage: "mug.fill")
+                        }
+
+                        Button {
+                            Task {
+                                await drinkStore.addDrink(ml: 500)
+                            }
+                        } label: {
+                            Label("500 mL", systemImage: "waterbottle.fill")
+                        }
+                    } label: {
+                        Label("Add Water", systemImage: "plus")
                     }
                 }
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Mizum")
-            .toolbarBackground(Color(.systemGroupedBackground), for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }
         .healthDataAccessRequest(store: drinkStore.healthStore, shareTypes: Drink.types, readTypes: Drink.types, trigger: requestAuth) { result in
             switch result {
