@@ -46,7 +46,7 @@ final class DrinkReminder {
         let actions = DrinkAmount.allCases.map { amount in
             UNNotificationAction(
                 identifier: amount.identifier,
-                title: amount.title,
+                title: String(localized: "Drink \(Int(amount.rawValue)) mL"),
             )
         }
 
@@ -78,8 +78,8 @@ final class DrinkReminder {
             let identifier = Bundle.main.bundleIdentifier! + ".reminder.\(hour)"
 
             let content = UNMutableNotificationContent()
-            content.title = "Time to Drink"
-            content.body = "A glass of water now is a good choice."
+            content.title = String(localized: "Time to Drink")
+            content.body = String(localized: "A glass of water now is a good choice.")
             content.categoryIdentifier = "io.github.kiyohitonara.mizum.reminder"
             content.sound = .default
 

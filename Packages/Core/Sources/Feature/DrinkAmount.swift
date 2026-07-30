@@ -6,8 +6,4 @@ public enum DrinkAmount: Double, CaseIterable {
     public var identifier: String {
         return "io.github.kiyohitonara.mizum.action.drink_\(self.rawValue)"
     }
-
-    public var title: String {
-        return "Drink \(Int(self.rawValue))ml"
-    }
 }

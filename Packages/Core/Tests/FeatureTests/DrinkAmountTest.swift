@@ -18,13 +18,6 @@ struct DrinkAmountTest {
     }
 
     @Test
-    func buildsTitleFromRawValue() {
-        #expect(DrinkAmount.small.title == "Drink 100ml")
-        #expect(DrinkAmount.medium.title == "Drink 250ml")
-        #expect(DrinkAmount.large.title == "Drink 500ml")
-    }
-
-    @Test
     func listsAllCases() {
         #expect(DrinkAmount.allCases == [.small, .medium, .large])
     }

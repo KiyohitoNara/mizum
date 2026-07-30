@@ -1,0 +1,157 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " %@" : {
+      "shouldTranslate" : false
+    },
+    "%lld mL" : {
+      "shouldTranslate" : false
+    },
+    "100 mL" : {
+      "shouldTranslate" : false
+    },
+    "250 mL" : {
+      "shouldTranslate" : false
+    },
+    "500 mL" : {
+      "shouldTranslate" : false
+    },
+    "Drink %lld mL" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mLを飲んだ"
+          }
+        }
+      }
+    },
+    "A glass of water now is a good choice." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水分補給はいかがですか。"
+          }
+        }
+      }
+    },
+    "Add Water" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水分を追加"
+          }
+        }
+      }
+    },
+    "Daily Goal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1日の目標"
+          }
+        }
+      }
+    },
+    "End" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終了"
+          }
+        }
+      }
+    },
+    "Goal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目標"
+          }
+        }
+      }
+    },
+    "Mizum" : {
+      "shouldTranslate" : false
+    },
+    "mL" : {
+      "shouldTranslate" : false
+    },
+    "Notifications" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        }
+      }
+    },
+    "Reminders" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リマインダー"
+          }
+        }
+      }
+    },
+    "Start" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始"
+          }
+        }
+      }
+    },
+    "Time" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "時刻"
+          }
+        }
+      }
+    },
+    "Time to Drink" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水を飲む時間です"
+          }
+        }
+      }
+    },
+    "Today's water intake" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本日の水分摂取量"
+          }
+        }
+      }
+    },
+    "Total" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合計"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}

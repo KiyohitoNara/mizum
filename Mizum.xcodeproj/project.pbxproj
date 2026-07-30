@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B825BC722F066DB6005AE35F /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B825BC712F066DB6005AE35F /* Feature */; };
 		B8738AE52F385EAF00D6F07B /* Mizum.icon in Resources */ = {isa = PBXBuildFile; fileRef = B8738AE42F385EAF00D6F07B /* Mizum.icon */; };
+		B8DDA398301B33A00096F143 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B8DDA397301B33A00096F143 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B8A0E52E2F03911200883AD9 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E53B2F03911300883AD9 /* iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A0E5452F03911300883AD9 /* iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8DDA397301B33A00096F143 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -92,14 +94,15 @@
 		B8A0E5252F03911200883AD9 = {
 			isa = PBXGroup;
 			children = (
-				B8738AE42F385EAF00D6F07B /* Mizum.icon */,
-				B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */,
-				B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */,
 				B825BC6D2F066B56005AE35F /* Core */,
+				B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */,
+				B8738AE42F385EAF00D6F07B /* Mizum.icon */,
+				B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */,
+				B8DDA397301B33A00096F143 /* Localizable.xcstrings */,
+				B825BC6E2F066B8B005AE35F /* Frameworks */,
 				B8A0E5302F03911200883AD9 /* iOSApp */,
 				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
 				B8A0E5482F03911300883AD9 /* iOSAppUITests */,
-				B825BC6E2F066B8B005AE35F /* Frameworks */,
 				B8A0E52F2F03911200883AD9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = B8A0E5252F03911200883AD9;
 			minimizedProjectReferenceProxies = 1;
@@ -236,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8738AE52F385EAF00D6F07B /* Mizum.icon in Resources */,
+				B8DDA398301B33A00096F143 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +358,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -410,6 +416,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
