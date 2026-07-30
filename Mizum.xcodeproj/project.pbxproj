@@ -34,9 +34,9 @@
 		B8738AB02F09FD2700D6F07B /* Mizum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mizum-Info.plist"; sourceTree = "<group>"; };
 		B8738AB42F14C6EF00D6F07B /* Mizum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mizum.entitlements; sourceTree = "<group>"; };
 		B8738AE42F385EAF00D6F07B /* Mizum.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Mizum.icon; sourceTree = "<group>"; };
-		B8A0E52E2F03911200883AD9 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A0E53B2F03911300883AD9 /* iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8A0E5452F03911300883AD9 /* iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A0E52E2F03911200883AD9 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A0E53B2F03911300883AD9 /* iOSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A0E5452F03911300883AD9 /* iOSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DDA397301B33A00096F143 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,9 +110,9 @@
 		B8A0E52F2F03911200883AD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8A0E52E2F03911200883AD9 /* iOS.app */,
-				B8A0E53B2F03911300883AD9 /* iOSTests.xctest */,
-				B8A0E5452F03911300883AD9 /* iOSUITests.xctest */,
+				B8A0E52E2F03911200883AD9 /* iOSApp.app */,
+				B8A0E53B2F03911300883AD9 /* iOSAppTests.xctest */,
+				B8A0E5452F03911300883AD9 /* iOSAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,9 +120,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8A0E52D2F03911200883AD9 /* iOS */ = {
+		B8A0E52D2F03911200883AD9 /* iOSApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildConfigurationList = B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSApp" */;
 			buildPhases = (
 				B8A0E52A2F03911200883AD9 /* Sources */,
 				B8A0E52B2F03911200883AD9 /* Frameworks */,
@@ -135,17 +135,17 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E5302F03911200883AD9 /* iOSApp */,
 			);
-			name = iOS;
+			name = iOSApp;
 			packageProductDependencies = (
 				B825BC712F066DB6005AE35F /* Feature */,
 			);
 			productName = Mizum;
-			productReference = B8A0E52E2F03911200883AD9 /* iOS.app */;
+			productReference = B8A0E52E2F03911200883AD9 /* iOSApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8A0E53A2F03911300883AD9 /* iOSTests */ = {
+		B8A0E53A2F03911300883AD9 /* iOSAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSTests" */;
+			buildConfigurationList = B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSAppTests" */;
 			buildPhases = (
 				B8A0E5372F03911300883AD9 /* Sources */,
 				B8A0E5382F03911300883AD9 /* Frameworks */,
@@ -159,16 +159,16 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E53E2F03911300883AD9 /* iOSAppTests */,
 			);
-			name = iOSTests;
+			name = iOSAppTests;
 			packageProductDependencies = (
 			);
 			productName = MizumTests;
-			productReference = B8A0E53B2F03911300883AD9 /* iOSTests.xctest */;
+			productReference = B8A0E53B2F03911300883AD9 /* iOSAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8A0E5442F03911300883AD9 /* iOSUITests */ = {
+		B8A0E5442F03911300883AD9 /* iOSAppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSUITests" */;
+			buildConfigurationList = B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSAppUITests" */;
 			buildPhases = (
 				B8A0E5412F03911300883AD9 /* Sources */,
 				B8A0E5422F03911300883AD9 /* Frameworks */,
@@ -182,11 +182,11 @@
 			fileSystemSynchronizedGroups = (
 				B8A0E5482F03911300883AD9 /* iOSAppUITests */,
 			);
-			name = iOSUITests;
+			name = iOSAppUITests;
 			packageProductDependencies = (
 			);
 			productName = MizumUITests;
-			productReference = B8A0E5452F03911300883AD9 /* iOSUITests.xctest */;
+			productReference = B8A0E5452F03911300883AD9 /* iOSAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -227,9 +227,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8A0E52D2F03911200883AD9 /* iOS */,
-				B8A0E53A2F03911300883AD9 /* iOSTests */,
-				B8A0E5442F03911300883AD9 /* iOSUITests */,
+				B8A0E52D2F03911200883AD9 /* iOSApp */,
+				B8A0E53A2F03911300883AD9 /* iOSAppTests */,
+				B8A0E5442F03911300883AD9 /* iOSAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,12 +287,12 @@
 /* Begin PBXTargetDependency section */
 		B8A0E53D2F03911300883AD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8A0E52D2F03911200883AD9 /* iOS */;
+			target = B8A0E52D2F03911200883AD9 /* iOSApp */;
 			targetProxy = B8A0E53C2F03911300883AD9 /* PBXContainerItemProxy */;
 		};
 		B8A0E5472F03911300883AD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8A0E52D2F03911200883AD9 /* iOS */;
+			target = B8A0E52D2F03911200883AD9 /* iOSApp */;
 			targetProxy = B8A0E5462F03911300883AD9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOS" */ = {
+		B8A0E54F2F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5502F03911300883AD9 /* Debug */,
@@ -600,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSTests" */ = {
+		B8A0E5522F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5532F03911300883AD9 /* Debug */,
@@ -609,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSUITests" */ = {
+		B8A0E5552F03911300883AD9 /* Build configuration list for PBXNativeTarget "iOSAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8A0E5562F03911300883AD9 /* Debug */,
