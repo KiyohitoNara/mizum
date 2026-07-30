@@ -21,15 +21,17 @@ final class DrinkReminder {
             logger.info("Requesting notification authorization.")
 
             do {
-                try await notificationCenter.requestAuthorization(options: [.alert, .sound])
+                authorized = try await notificationCenter.requestAuthorization(options: [.alert, .sound])
 
                 logger.info("Successfully requested notification authorization.")
             } catch {
                 logger.error("Failed to request notification authorization: \(error.localizedDescription)")
-            }
-        }
 
-        authorized = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
+                authorized = false
+            }
+        } else {
+            authorized = settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional
+        }
     }
 
     public func setupNotificationDelegate(delegate: UNUserNotificationCenterDelegate) {
