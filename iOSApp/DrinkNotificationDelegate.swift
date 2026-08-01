@@ -1,4 +1,4 @@
-import Feature
+import Core
 import OSLog
 import SwiftUI
 import UserNotifications

@@ -1,4 +1,4 @@
-import Feature
+import Core
 import HealthKit
 import SwiftUI
 

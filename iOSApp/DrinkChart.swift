@@ -1,5 +1,5 @@
 import Charts
-import Feature
+import Core
 import SwiftUI
 
 struct DrinkChart: View {

@@ -1,7 +1,7 @@
 import HealthKit
 import Testing
 
-@testable import Feature
+@testable import Core
 
 struct DrinkTest {
     @Test

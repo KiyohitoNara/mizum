@@ -9,17 +9,17 @@ let package = Package(
         .iOS(.v26)
     ],
     products: [
-        .library(name: "Feature", targets: ["Feature"])
+        .library(name: "Core", targets: ["Core"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-algorithms", from: "1.2.0")
     ],
     targets: [
         .target(
-            name: "Feature",
+            name: "Core",
             dependencies: [
                 .product(name: "Algorithms", package: "swift-algorithms")
             ]),
-        .testTarget(name: "FeatureTests", dependencies: ["Feature"])
+        .testTarget(name: "CoreTests", dependencies: ["Core"])
     ]
 )

@@ -1,5 +1,5 @@
 import Charts
-import Feature
+import Core
 import HealthKit
 import HealthKitUI
 import OSLog

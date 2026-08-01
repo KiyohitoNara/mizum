@@ -1,4 +1,4 @@
-import Feature
+import Core
 import Foundation
 import OSLog
 import Observation

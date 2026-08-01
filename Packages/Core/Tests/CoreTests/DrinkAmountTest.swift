@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Feature
+@testable import Core
 
 struct DrinkAmountTest {
     @Test

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B825BC722F066DB6005AE35F /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B825BC712F066DB6005AE35F /* Feature */; };
+		B825BC722F066DB6005AE35F /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B825BC712F066DB6005AE35F /* Core */; };
 		B8738AE52F385EAF00D6F07B /* Mizum.icon in Resources */ = {isa = PBXBuildFile; fileRef = B8738AE42F385EAF00D6F07B /* Mizum.icon */; };
 		B8DDA398301B33A00096F143 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B8DDA397301B33A00096F143 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B825BC722F066DB6005AE35F /* Feature in Frameworks */,
+				B825BC722F066DB6005AE35F /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,7 @@
 			);
 			name = iOSApp;
 			packageProductDependencies = (
-				B825BC712F066DB6005AE35F /* Feature */,
+				B825BC712F066DB6005AE35F /* Core */,
 			);
 			productName = Mizum;
 			productReference = B8A0E52E2F03911200883AD9 /* iOSApp.app */;
@@ -621,9 +621,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B825BC712F066DB6005AE35F /* Feature */ = {
+		B825BC712F066DB6005AE35F /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Feature;
+			productName = Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
